@@ -40,7 +40,7 @@ const App = () => {
             style={{
               fontWeight: "bold",
               fontSize: 15,
-              color: COLORS.primary,
+              color: todo?.completed ? "gray" : COLORS.primary,
               textDecorationLine: todo?.completed ? "line-through" : "none",
             }}
           >
@@ -110,7 +110,7 @@ const App = () => {
     const newTodos = todos.map((item) => {
       if (item.id == todoId) {
         console.log(item.completed);
-        return { ...item, completed: true };
+        return { ...item, completed: !item.completed };
       }
       return item;
     });
@@ -119,7 +119,15 @@ const App = () => {
 
   const deleteTodo = (todoId) => {
     const newTodos = todos.filter((item) => item.id != todoId);
-    setTodos(newTodos);
+    Alert.alert("Deseja apagar esta tarefa?", "", [
+      {
+        text: "Sim",
+        onPress: () => {
+          setTodos(newTodos);
+        },
+      },
+      { text: "Não" },
+    ]);
   };
 
   const clearTodos = () => {
