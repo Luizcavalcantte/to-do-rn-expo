@@ -153,9 +153,15 @@ const App = () => {
         <Text
           style={{ fontWeight: "bold", fontSize: 20, color: COLORS.primary }}
         >
-          TODO APP
+          Lista de Tarefas
         </Text>
-        <Icon name="delete" size={25} color={"red"} onPress={clearTodos} />
+        <Icon
+          name="delete"
+          size={25}
+          color={"red"}
+          onPress={clearTodos}
+          style={{ position: "absolute", right: 20, top: 28 }}
+        />
       </View>
       <FlatList
         showsVerticalScrollIndicator={false}
@@ -166,7 +172,7 @@ const App = () => {
       <View style={styles.footer}>
         <View style={styles.inputContainer}>
           <TextInput
-            placeholder="Add Todo"
+            placeholder="Nova Tarefa"
             value={textInput}
             onChangeText={(text) => setTextInput(text)}
           />
@@ -199,10 +205,11 @@ const styles = StyleSheet.create({
   },
 
   header: {
+    paddingTop: 30,
     padding: 20,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
   },
   footer: {
     position: "absolute",
