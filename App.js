@@ -24,6 +24,11 @@ const App = () => {
 
   const [todos, setTodos] = React.useState([]);
 
+  //useEffect fica de olho nos estados, pra executar uma ação.
+  //useEffect se nao tiver os [colchetes] sempre que qualquer estado for atulaizado, oq estiver dentro das {chaves} sera executado.
+  //useEffect se tiver um [colchetes] vazio, o useEffect sera executado apenas no inicio da aplicação.
+  //useEffect se tiver um ou mais estados dentro dos [colchetes] sempre que um desses estados forem atualizados, oq estiver dentro das {chaves} sera executado.
+
   React.useEffect(() => {
     getTodosFromUsersDevice();
   }, []);
